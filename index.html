@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Binjamin Home</title>
+
+<style>
+body {
+  margin: 0;
+  font-family: Arial;
+  text-align: center;
+  color: white;
+
+  /* 🔥 এখানে background image */
+  background: url('photo.jpg') no-repeat center center fixed;
+  background-size: cover;
+}
+
+/* overlay dark effect */
+.overlay {
+  background: rgba(0,0,0,0.6);
+  height: 100vh;
+  padding-top: 80px;
+}
+
+#clock {
+  font-size: 22px;
+  margin-bottom: 10px;
+}
+
+input {
+  width: 80%;
+  padding: 12px;
+  border-radius: 25px;
+  border: none;
+}
+
+button {
+  margin-top: 10px;
+  padding: 10px 20px;
+  border-radius: 20px;
+  border: none;
+}
+
+.shortcuts a {
+  display: inline-block;
+  margin: 8px;
+  padding: 10px 15px;
+  background: rgba(0,0,0,0.5);
+  border-radius: 10px;
+  color: white;
+  text-decoration: none;
+}
+</style>
+
+</head>
+
+<body>
+
+<div class="overlay">
+
+<h2>Binjamin</h2>
+<div id="clock"></div>
+
+<form action="https://www.google.com/search">
+  <input type="text" name="q" placeholder="Search Google...">
+  <br>
+  <button type="submit">Search</button>
+</form>
+
+<div class="shortcuts">
+  <a href="https://youtube.com">YouTube</a>
+  <a href="https://facebook.com">Facebook</a>
+</div>
+
+</div>
+
+<script>
+function updateClock() {
+  let now = new Date();
+  document.getElementById("clock").innerText = now.toLocaleTimeString();
+}
+setInterval(updateClock, 1000);
+updateClock();
+</script>
+
+</body>
+</html>
