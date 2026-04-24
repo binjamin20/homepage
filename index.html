@@ -49,40 +49,59 @@ body {
 /* Content */
 .content {
     position: absolute;
-    top: 15%;
+    top: 8%;
     width: 100%;
     text-align: center;
+}
+
+/* Welcome */
+.welcome {
+    font-size: 1.5em;
+    margin-bottom: 10px;
 }
 
 /* Time */
 .time {
     font-size: 4em;
     font-weight: 700;
-    text-shadow: 0 0 10px rgba(0,0,0,0.7);
 }
 
 /* Date */
 .date {
-    margin-top: 5px;
     font-size: 1.2em;
-    opacity: 0.9;
+    margin-bottom: 20px;
 }
 
-/* Search */
+/* 🔥 GLASS SEARCH BOX */
 .search-box {
-    margin-top: 25px;
     display: flex;
     justify-content: center;
 }
 
 .search-box input {
     width: 70%;
-    max-width: 400px;
-    padding: 12px 20px;
-    border-radius: 30px;
-    border: none;
-    outline: none;
-    font-size: 1em;
+    max-width: 420px;
+    padding: 14px 20px;
+    border-radius: 40px;
+
+    /* 🔥 main magic */
+    background: rgba(255,255,255,0.15);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+
+    border: 1px solid rgba(255,255,255,0.3);
+    color: white;
+    font-size: 16px;
+}
+
+/* placeholder color */
+.search-box input::placeholder {
+    color: #ddd;
+}
+
+/* focus effect */
+.search-box input:focus {
+    border: 1px solid rgba(255,255,255,0.6);
 }
 
 </style>
@@ -90,7 +109,6 @@ body {
 
 <body>
 
-<!-- 🔥 তোমার নিজের ছবি -->
 <div class="slideshow">
     <img src="photo1.jpg" class="active">
     <img src="photo2.jpg">
@@ -100,17 +118,19 @@ body {
 <div class="overlay"></div>
 
 <div class="content">
-    <div class="time" id="time"></div>
-    <div class="date" id="date"></div>
 
-    <form action="https://www.google.com/search" class="search-box">
-        <input type="text" name="q" placeholder="Search Google...">
-    </form>
+<div class="welcome">Welcome, Binjamin</div>
+
+<div class="time" id="time"></div>
+<div class="date" id="date"></div>
+
+<form action="https://www.google.com/search" class="search-box">
+    <input type="text" name="q" placeholder="Search Google...            😘Binjamin🥰">
+</form>
+
 </div>
 
 <script>
-
-/* Time + Seconds */
 function updateTime() {
     let now = new Date();
 
@@ -118,23 +138,16 @@ function updateTime() {
     now.toLocaleTimeString("en-US", {
         hour: '2-digit',
         minute: '2-digit',
-        second: '2-digit',
-        hour12: true
+        second: '2-digit'
     });
 
     document.getElementById("date").innerText =
-    now.toLocaleDateString("en-GB", {
-        weekday: 'long',
-        year: 'numeric',
-        month: 'long',
-        day: 'numeric'
-    });
+    now.toDateString();
 }
-
 setInterval(updateTime, 1000);
 updateTime();
 
-/* Slideshow */
+/* slideshow */
 let index = 0;
 let slides = document.querySelectorAll(".slideshow img");
 
@@ -146,7 +159,6 @@ function showSlides() {
     setTimeout(showSlides, 5000);
 }
 showSlides();
-
 </script>
 
 </body>
